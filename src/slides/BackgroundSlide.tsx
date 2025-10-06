@@ -6,6 +6,12 @@ export default function BackgroundSlide() {
           <div className="w-3 h-12 bg-cyan-500 mr-4" />
           <h2 className="text-3xl font-bold">Becoming a PM</h2>
         </div>
+        
+        {/* Company Logo */}
+        <div className="flex justify-center mb-8">
+          <img src="/picture/logo.png" alt="NextEast Media" className="h-48 md:h-60 w-auto mx-auto select-none transition-transform duration-300 ease-out hover:scale-105" draggable="false" />
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-xl font-semibold mb-4 text-cyan-300">Education Path</h3>

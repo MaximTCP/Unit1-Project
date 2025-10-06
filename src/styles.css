@@ -6,7 +6,7 @@
 :root { color-scheme: dark; }
 body { font-family: 'Space Grotesk', sans-serif; }
 
-.gradient-bg { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); }
+.gradient-bg { background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(45, 45, 45, 0.8) 100%); }
 .slide { scroll-snap-align: start; height: 100vh; }
 
 /* Blur text animation port */
