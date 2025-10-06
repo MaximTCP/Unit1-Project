@@ -1,0 +1,10 @@
+/* Lightning background canvas */
+.lightning-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* content will be placed above via z-index */
+  pointer-events: none; /* allow clicks to pass through */
+  display: block;
+}

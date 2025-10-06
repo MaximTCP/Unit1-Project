@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextEast Media: PM Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); /* Restored original background */
+            overflow-x: hidden;
+        }
+
+        .slide {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 100%);
+            transition: width 0.1s ease-out;
+        }
+
+        #blurTitle {
+            display: inline-block;
+        }
+
+        .blur-text-word {
+            display: inline-block;
+            will-change: transform, filter, opacity;
+            background: linear-gradient(to right, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blur-text-word.animate {
+            animation: blur-in-top 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes blur-in-top {
+            0% {
+                filter: blur(10px);
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            50% {
+                filter: blur(5px);
+                opacity: 0.5;
+                transform: translateY(5px);
+            }
+            100% {
+                filter: blur(0px);
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ensure background container covers full viewport */
+        #react-dither-root {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 0 !important;
+            pointer-events: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Navigation Progress -->
+    <div class="progress-bar fixed top-0 left-0 z-50" id="progressBar"></div>
+
+    <!-- React Dither Background -->
+    <div id="react-dither-root" class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Main Slides Container -->
+    <main class="relative z-10">
+        <!-- Slide 1: Title -->
+        <section class="slide flex flex-col justify-center items-center p-8 text-center">
+            <div class="max-w-4xl">
+                <a href="https://nexteast.net" target="_blank" rel="noopener noreferrer" class="inline-block mb-6">
+                    <img src="public/picture/logo.png" alt="NextEast Media" class="h-48 md:h-60 w-auto mx-auto select-none transition-transform duration-300 ease-out hover:scale-105" draggable="false" />
+                </a>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-8">Project Management in Social Media</h2>
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-xl mb-2">Presented by <span class="text-cyan-300">Maxim Sevcenco</span></p>
+                    <p class="text-lg text-gray-400">Unit 1 Project | Ms. Triantis | Class Period: 2nd</p>
+                </div>
+                <div class="mt-12 animate-bounce">
+                    <i data-feather="arrow-down" class="w-12 h-12 text-cyan-400"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: PM Role -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-blue-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">The Project Manager Role</h2>
+                </div>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                        <span>Orchestrates social media campaigns from concept to completion</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                        <span>Aligns creative vision with business objectives</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                        <span>Manages timelines, budgets, and team coordination</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                        <span>Acts as bridge between clients, creatives, and executives</span>
+                    </li>
+                </ul>
+                    <div class="mt-8 flex justify-center">
+                        <img id="projectImg" src="public/picture/maxpost.png" alt="Project Management" class="rounded-lg shadow-xl w-80 h-80 md:w-96 md:h-96 object-contain bg-gray-900/40"
+                            onerror="(function(i){var a=parseInt(i.getAttribute('data-attempt')||'0')+1;i.setAttribute('data-attempt',a);if(a===1){i.src='public/picture/maxpost.png';}else if(a===2){i.src='/picture/maxpost.png';}else{ i.removeAttribute('src');}})(this)" />
+                    </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Background -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-cyan-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Becoming a PM</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-300">Education Path</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i data-feather="book" class="mr-2 w-5 h-5"></i> Marketing or Business Degrees</li>
+                            <li class="flex items-center"><i data-feather="award" class="mr-2 w-5 h-5"></i> PMP or CAPM Certifications</li>
+                            <li class="flex items-center"><i data-feather="monitor" class="mr-2 w-5 h-5"></i> Social Media Marketing Courses</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-cyan-300">Experience Needed</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i data-feather="users" class="mr-2 w-5 h-5"></i> 3-5 years in digital marketing</li>
+                            <li class="flex items-center"><i data-feather="trending-up" class="mr-2 w-5 h-5"></i> Proven campaign leadership</li>
+                            <li class="flex items-center"><i data-feather="tool" class="mr-2 w-5 h-5"></i> Platform expertise (Meta, TikTok, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 bg-gray-800 p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <i data-feather="info" class="text-yellow-400 mr-4 mt-1"></i>
+                        <p>"At NextEast Media, we value hands-on experience with influencer campaigns and viral content strategies as much as formal education."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Success -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-blue-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Keys to Success</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i data-feather="zap" class="w-8 h-8 text-cyan-300 mb-4"></i>
+                        <h3 class="font-bold mb-2">Adaptability</h3>
+                        <p class="text-sm text-gray-300">Thrives in fast-paced digital landscape</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i data-feather="message-square" class="w-8 h-8 text-sky-300 mb-4"></i>
+                        <h3 class="font-bold mb-2">Communication</h3>
+                        <p class="text-sm text-gray-300">Bridges creative and business teams</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <i data-feather="bar-chart-2" class="w-8 h-8 text-blue-300 mb-4"></i>
+                        <h3 class="font-bold mb-2">Analytical</h3>
+                        <p class="text-sm text-gray-300">Data-driven campaign optimization</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-blue-900 p-6 rounded-lg">
+                    <h3 class="font-bold text-xl mb-2">Compensation</h3>
+                    <p class="text-lg">$65k - $95k + performance bonuses</p>
+                    <p class="text-sm text-cyan-200 mt-2">Based on agency size and campaign scope</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Stakeholders -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-cyan-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Key Stakeholders</h2>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 mb-8">
+                    <div class="relative group">
+                        <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
+                            <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="7" cy="12" r="1.6"/>
+                                <circle cx="12" cy="12" r="1.6"/>
+                                <circle cx="17" cy="12" r="1.6"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            Clients
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
+                            <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 5 L19 19 H5 Z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            Creatives
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
+                            <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17 V11"/>
+                                <path d="M12 17 V8"/>
+                                <path d="M17 17 V13"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            Finance
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
+                            <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 14 L12 8 L18 14"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            Leadership
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg mt-8">
+                    <p class="text-center">"The PM is the conductor ensuring all stakeholders play in harmony for campaign success."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Life Cycle -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-sky-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Project Life Cycle</h2>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500 via-blue-500 to-sky-500"></div>
+                    <div class="space-y-8 pl-0 md:pl-16">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Initiating</h3>
+                                <p class="text-gray-300">Client brief → Creative kickoff</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Planning</h3>
+                                <p class="text-gray-300">Content calendar → Budget approval</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Executing</h3>
+                                <p class="text-gray-300">Content creation → Platform deployment</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Monitoring</h3>
+                                <p class="text-gray-300">Analytics review → Optimization</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold">5</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Closing</h3>
+                                <p class="text-gray-300">Performance report → Retrospective</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Core Functions -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-blue-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Core Functions</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-400">
+                        <h3 class="font-bold text-xl mb-3 flex items-center">
+                            <i data-feather="target" class="mr-2 text-cyan-300"></i>
+                            Scope
+                        </h3>
+                        <p class="text-gray-300">Defining campaign deliverables and KPIs</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-sky-400">
+                        <h3 class="font-bold text-xl mb-3 flex items-center">
+                            <i data-feather="clock" class="mr-2 text-sky-300"></i>
+                            Time
+                        </h3>
+                        <p class="text-gray-300">Managing content calendars and deadlines</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="font-bold text-xl mb-3 flex items-center">
+                            <i data-feather="dollar-sign" class="mr-2 text-blue-300"></i>
+                            Cost
+                        </h3>
+                        <p class="text-gray-300">Budgeting for content production and ads</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-cyan-400">
+                        <h3 class="font-bold text-xl mb-3 flex items-center">
+                            <i data-feather="award" class="mr-2 text-cyan-300"></i>
+                            Quality
+                        </h3>
+                        <p class="text-gray-300">Ensuring brand consistency and engagement</p>
+                    </div>
+                </div>
+                <div class="mt-6 text-center text-gray-400">
+                    <p>Balancing these four constraints determines campaign success</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Facilitating Functions -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-cyan-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Facilitating Functions</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gray-800 p-4 rounded-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-800 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="10" cy="12" r="2"/>
+                                <circle cx="15" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold">HR</h3>
+                        <p class="text-sm text-gray-400">Team coordination</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-800 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="5" y="6.5" width="14" height="9" rx="2"/>
+                                <path d="M9 15.5 L9 19 L12 16"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold">Communication</h3>
+                        <p class="text-sm text-gray-400">Client updates</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-800 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-sky-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 5 L20 19 H4 Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold">Risk</h3>
+                        <p class="text-sm text-gray-400">Crisis management</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-800 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="6" y="9" width="12" height="9" rx="2"/>
+                                <path d="M9 9 Q12 6 15 9"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold">Procurement</h3>
+                        <p class="text-sm text-gray-400">Vendor selection</p>
+                    </div>
+                </div>
+                <div class="mt-8 bg-gray-800 p-6 rounded-lg">
+                    <p class="text-center">"Great PMs excel in these supporting functions to enable core campaign success."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Challenges & Satisfaction -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-sky-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">The PM Experience</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center text-sky-300">
+                            <i data-feather="alert-octagon" class="mr-2"></i>
+                            Challenges
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-sky-400 mr-2 mt-1"></i>
+                                <span>Managing creative egos and client expectations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-sky-400 mr-2 mt-1"></i>
+                                <span>Platform algorithm changes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-sky-400 mr-2 mt-1"></i>
+                                <span>24/7 nature of social media</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-sky-400 mr-2 mt-1"></i>
+                                <span>Tight deadlines with high stakes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center text-blue-300">
+                            <i data-feather="heart" class="mr-2"></i>
+                            Satisfaction
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-blue-400 mr-2 mt-1"></i>
+                                <span>Seeing campaigns go viral</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-blue-400 mr-2 mt-1"></i>
+                                <span>Building brand communities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-blue-400 mr-2 mt-1"></i>
+                                <span>Creative problem solving</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="chevron-right" class="text-blue-400 mr-2 mt-1"></i>
+                                <span>Tangible ROI results</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <p class="text-lg">"The thrill of launching a successful campaign outweighs all challenges."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Reflection -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-gradient-to-b from-cyan-500 to-blue-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Reflection</h2>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-8 mb-8">
+                    <p class="text-lg mb-6">Project management in social media requires a unique blend of:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-900 p-4 rounded-lg text-center">
+                            <i data-feather="cpu" class="w-8 h-8 mx-auto mb-3 text-cyan-300"></i>
+                            <h3 class="font-bold">Technical Skills</h3>
+                            <p class="text-sm text-gray-400">Platform expertise, analytics</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg text-center">
+                            <i data-feather="users" class="w-8 h-8 mx-auto mb-3 text-blue-300"></i>
+                            <h3 class="font-bold">People Skills</h3>
+                            <p class="text-sm text-gray-400">Stakeholder management</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg text-center">
+                            <i data-feather="zap" class="w-8 h-8 mx-auto mb-3 text-sky-300"></i>
+                            <h3 class="font-bold">Adaptability</h3>
+                            <p class="text-sm text-gray-400">Trend responsiveness</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-xl mb-4">At NextEast Media, we believe:</p>
+                    <p class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-400">
+                        "Great PMs don't just manage projects—they create digital experiences."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Works Cited -->
+        <section class="slide p-8 flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-3 h-12 bg-gray-500 mr-4"></div>
+                    <h2 class="text-3xl font-bold">Works Cited</h2>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <ol class="space-y-3 text-sm">
+                        <li>Project Management Institute. "A Guide to the Project Management Body of Knowledge (PMBOK® Guide)." 7th ed., 2021.</li>
+                        <li>Social Media Today. "The Complete Guide to Social Media Project Management." 2022.</li>
+                        <li>Forbes. "Why Every Social Media Team Needs a Project Manager." March 2023.</li>
+                        <li>LinkedIn Learning. "Project Management for Creative Professionals." 2022.</li>
+                        <li>HubSpot. "The Ultimate Guide to Social Media Management." 2023.</li>
+                    </ol>
+                </div>
+                <div class="mt-8 text-center text-gray-400">
+                    <p>Thank you!</p>
+                    <div class="flex justify-center mt-4">
+                        <i data-feather="message-circle" class="w-6 h-6 mr-2"></i>
+                        <i data-feather="twitter" class="w-6 h-6 mr-2"></i>
+                        <i data-feather="linkedin" class="w-6 h-6"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- React Scripts -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <script>
+        // Pure React Dither Background Component (No Three.js dependencies)
+        const { useState, useEffect, useRef, useMemo } = React;
+        
+        function DitherBackground() {
+            const canvasRef = useRef(null);
+            const ctxRef = useRef(null);
+            const animationRef = useRef(null);
+            const mouseRef = useRef({ x: 0.5, y: 0.5 });
+            const timeRef = useRef(0);
+            const frameCountRef = useRef(0);
+            const sizeRef = useRef({ w: 0, h: 0, dpr: 1 });
+            const pausedRef = useRef(false);
+            const fpsEMARef = useRef(165);
+
+            // Offscreen low-res buffer
+            const offscreenRef = useRef(null);
+            const offctxRef = useRef(null);
+            const imgDataRef = useRef(null);
+            const pixelSizeRef = useRef(10); // dynamic to maintain fps
+
+            // Config tuned for high refresh; no frame skipping
+            const config = useMemo(() => ({
+                waveSpeed: 1.4,        // radians per second for sin/cos
+                baseScale: 0.9,        // base intensity
+                colorIntensity: 0.18,  // overall brightness
+                mouseRadius: 0.35,     // normalized radius
+                colors: 4,
+                minPixel: 6,
+                maxPixel: 16,
+                targetFpsLow: 150,
+                targetFpsHigh: 170
+            }), []);
+            
+            // Lightweight procedural pattern (sin/cos), far cheaper than perlin
+            const basePattern = (x, y, t) => {
+                // x,y normalized to [-1,1]
+                const s1 = Math.sin((x * 3.2 + y * 1.8) + t * config.waveSpeed);
+                const s2 = Math.cos((y * 2.7 - x * 2.1) - t * config.waveSpeed * 0.8);
+                return (s1 + s2) * 0.5; // in [-1,1]
+            };
+            
+            // Bayer dithering matrix
+            const bayerMatrix = [
+                [0, 8, 2, 10],
+                [12, 4, 14, 6],
+                [3, 11, 1, 9],
+                [15, 7, 13, 5]
+            ];
+            
+            const dither = (value, x, y) => {
+                const threshold = bayerMatrix[y % 4][x % 4] / 16;
+                const stepped = Math.floor(value * config.colors + threshold) / config.colors;
+                return Math.max(0, Math.min(1, stepped));
+            };
+            
+            // Mouse tracking
+            const handleMouseMove = (e) => {
+                const canvas = canvasRef.current;
+                if (!canvas) return;
+                const rect = canvas.getBoundingClientRect();
+                mouseRef.current.x = (e.clientX - rect.left) / rect.width;
+                mouseRef.current.y = (e.clientY - rect.top) / rect.height;
+            };
+            
+            // Optimized resize canvas with better positioning
+            const setupOffscreen = (width, height) => {
+                const px = pixelSizeRef.current;
+                const cols = Math.max(1, Math.ceil(width / px));
+                const rows = Math.max(1, Math.ceil(height / px));
+                if (!offscreenRef.current) offscreenRef.current = document.createElement('canvas');
+                const oc = offscreenRef.current;
+                oc.width = cols;
+                oc.height = rows;
+                offctxRef.current = oc.getContext('2d', { willReadFrequently: true });
+                imgDataRef.current = offctxRef.current.createImageData(cols, rows);
+            };
+
+            const resizeCanvas = () => {
+                const canvas = canvasRef.current;
+                if (!canvas) return;
+                
+                // Use capped DPR for better performance
+                const dpr = 1; // force 1 to minimize pixel count
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                
+                const ctx = canvas.getContext('2d');
+                ctx.setTransform(1, 0, 0, 1, 0, 0); // reset
+                ctx.scale(dpr, dpr);
+                ctxRef.current = ctx;
+                sizeRef.current = { w: width, h: height, dpr };
+
+                setupOffscreen(width, height);
+                
+                // Ensure canvas covers full viewport
+                canvas.style.position = 'fixed';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.zIndex = '0';
+            };
+            
+            // Optimized render function with frame skipping
+            const render = () => {
+                const canvas = canvasRef.current;
+                if (!canvas || pausedRef.current) return;
+                
+                frameCountRef.current++;
+                
+                // Skip frames for better performance
+                if (frameCountRef.current % config.updateInterval !== 0) {
+                    animationRef.current = requestAnimationFrame(render);
+                    return;
+                }
+                
+                const ctx = ctxRef.current;
+                const offctx = offctxRef.current;
+                const imgData = imgDataRef.current;
+                const { w: width, h: height } = sizeRef.current;
+                if (!ctx || !offctx || !imgData) { animationRef.current = requestAnimationFrame(render); return; }
+
+                // Prepare offscreen image
+                const cols = imgData.width;
+                const rows = imgData.height;
+                const data = imgData.data;
+                const t = timeRef.current;
+
+                // Precompute mouse in offscreen space
+                const mx = mouseRef.current.x * cols;
+                const my = mouseRef.current.y * rows;
+                const rad = config.mouseRadius * Math.min(cols, rows);
+                const radInv = 1 / Math.max(1, rad);
+
+                let p = 0;
+                for (let j = 0; j < rows; j++) {
+                    const ny = (j / rows - 0.5) * 2;
+                    for (let i = 0; i < cols; i++) {
+                        const nx = (i / cols - 0.5) * 2;
+                        let wave = basePattern(nx, ny, t) * config.baseScale; // [-baseScale, baseScale]
+
+                        const dx = mx - i;
+                        const dy = my - j;
+                        const dist = Math.hypot(dx, dy);
+                        const mouseEffect = Math.max(0, 1 - dist * radInv);
+                        const cyanIntensity = mouseEffect * 0.9;
+                        wave += mouseEffect * 0.4;
+
+                        // Normalize to [0,1]
+                        let v = (wave + 1) * 0.5 * config.colorIntensity;
+                        v = Math.max(0, Math.min(1, v));
+
+                        // Dither at offscreen pixel resolution
+                        const d = dither(v, i, j);
+
+                        let r, g, b, a;
+                        if (cyanIntensity > 0.05) {
+                            r = (d * 20 + cyanIntensity * 60) | 0;
+                            g = (d * 30 + cyanIntensity * 220) | 0;
+                            b = (d * 40 + cyanIntensity * 255) | 0;
+                            a = Math.max(0.1, d * 0.3 + cyanIntensity * 0.7);
+                        } else {
+                            r = (d * 25) | 0;
+                            g = (d * 25) | 0;
+                            b = (d * 35) | 0;
+                            a = d * 0.15;
+                        }
+                        data[p++] = r;
+                        data[p++] = g;
+                        data[p++] = b;
+                        data[p++] = (a * 255) | 0;
+                    }
+                }
+
+                offctx.putImageData(imgData, 0, 0);
+
+                // Draw to screen scaled up with nearest-neighbor for crisp blocks
+                ctx.save();
+                ctx.imageSmoothingEnabled = false;
+                ctx.clearRect(0, 0, width, height);
+                ctx.drawImage(offscreenRef.current, 0, 0, width, height);
+                ctx.restore();
+
+                // Time step and FPS adapt
+                const now = performance.now();
+                const last = render._last || now;
+                const dt = now - last;
+                render._last = now;
+                const fps = dt > 0 ? 1000 / dt : 240;
+                // EMA towards current fps
+                fpsEMARef.current = fpsEMARef.current * 0.9 + fps * 0.1;
+
+                // Adjust pixel size to try to hover around refresh
+                if (fpsEMARef.current < config.targetFpsLow && pixelSizeRef.current < config.maxPixel) {
+                    pixelSizeRef.current += 2;
+                    // Recreate offscreen with larger pixels
+                    setupOffscreen(width, height);
+                } else if (fpsEMARef.current > config.targetFpsHigh && pixelSizeRef.current > config.minPixel) {
+                    pixelSizeRef.current -= 2;
+                    setupOffscreen(width, height);
+                }
+
+                // Advance time; smaller step to keep smooth
+                timeRef.current += 0.012;
+                animationRef.current = requestAnimationFrame(render);
+            };
+            
+            // Setup and cleanup effect
+            useEffect(() => {
+                console.log('DitherBackground mounting...');
+                
+                resizeCanvas();
+                document.addEventListener('mousemove', handleMouseMove);
+                window.addEventListener('resize', resizeCanvas);
+                const onVis = () => { pausedRef.current = document.hidden; if (!pausedRef.current) animationRef.current = requestAnimationFrame(render); };
+                document.addEventListener('visibilitychange', onVis);
+                
+                // Start animation loop
+                render();
+                
+                return () => {
+                    console.log('DitherBackground cleanup...');
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    window.removeEventListener('resize', resizeCanvas);
+                    document.removeEventListener('visibilitychange', onVis);
+                    if (animationRef.current) {
+                        cancelAnimationFrame(animationRef.current);
+                    }
+                };
+            }, []);
+            
+            return React.createElement('canvas', {
+                ref: canvasRef,
+                style: {
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    width: '100vw',
+                    height: '100vh',
+                    pointerEvents: 'none',
+                    zIndex: '0',
+                    margin: '0',
+                    padding: '0'
+                },
+                'aria-hidden': 'true'
+            });
+        }
+        
+        // Initialize React app with error handling
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing React Dither Background...');
+            
+            const container = document.getElementById('react-dither-root');
+            if (container && window.React && window.ReactDOM) {
+                try {
+                    const root = ReactDOM.createRoot(container);
+                    root.render(React.createElement(DitherBackground));
+                    console.log('React Dither Background initialized successfully!');
+                } catch (error) {
+                    console.error('Failed to initialize React background:', error);
+                }
+            } else {
+                console.error('Missing container or React libraries');
+            }
+        });
+    </script>
+    <script src="animations.js"></script>
+</body>
+</html>
