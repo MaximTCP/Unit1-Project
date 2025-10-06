@@ -1,151 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextEast Media: PM Pitch Deck</title>
+    <meta name="description" content="NextEast Media Project Management Pitch Deck" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html><!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NextEast Media: PM Pitch Deck</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Space Grotesk', sans-serif; }
-    .slide { scroll-snap-align: start; min-height: 100vh; }
-    .gradient-bg { 
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      background-attachment: fixed;
-    }
-    .progress-bar { 
-      height: 4px; 
-      background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 100%); 
-    }
-
-    /* Text styles */
-    .blur-text-word {
-      display: inline-block;
-      will-change: transform, opacity;
-      /* Clean blue gradient */
-      background: linear-gradient(to right, #22d3ee, #3b82f6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .blur-text-word.animate {
-      animation: fade-in-top 0.8s ease-out forwards;
-    }
-    @keyframes fade-in-top {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body class="gradient-bg text-gray-100 overflow-x-hidden" style="position: relative;">
-  <!-- Initialize Feather icons -->
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      feather.replace();
-    });
-  </script>
-
-  <!-- Content wrapper above the canvas -->
-  <div id="app-root" style="position: relative; z-index: 1;">
-    <!-- Navigation Progress -->
-    <div class="progress-bar fixed top-0 left-0 right-0 z-50" id="progressBar"></div>
-
-    <!-- Main Slides Container: let the body scroll, not a nested scroller -->
-    <main class="snap-y snap-mandatory w-full">
-      <section class="slide flex flex-col justify-center items-center p-8 text-center">
-        <div class="max-w-4xl">
-          <a href="https://nexteast.net" target="_blank" rel="noopener noreferrer" class="inline-block mb-6">
-            <img src="New folder/public/picture/logo.png" alt="NextEast Media" class="h-48 md:h-60 w-auto mx-auto select-none transition-transform duration-300 ease-out hover:scale-105" draggable="false" />
-          </a>
-          <h2 class="text-2xl md:text-3xl font-semibold mb-8">Project Management in Social Media</h2>
-          <div class="border-t border-gray-700 pt-6">
-            <p class="text-xl mb-2">Presented by <span class="text-cyan-300">Maxim Sevcenco</span></p>
-            <p class="text-lg text-gray-400">Unit 1 Project | Ms. Triantis | Class Period: 2nd</p>
-          </div>
-          <div class="mt-12 animate-bounce">
-            <i data-feather="arrow-down" class="w-12 h-12 text-cyan-400"></i>
-          </div>
-        </div>
-      </section>
-    <!-- Slide 2: PM Role -->
-    <section class="slide p-8 flex flex-col justify-center">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center mb-8">
-          <div class="w-3 h-12 bg-cyan-400 mr-4"></div>
-          <h2 class="text-3xl font-bold">The Project Manager Role</h2>
-        </div>
-        <ul class="space-y-4 text-lg">
-          <li class="flex items-start">
-            <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
-            <span>Orchestrates social media campaigns from concept to completion</span>
-          </li>
-          <li class="flex items-start">
-            <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
-            <span>Aligns creative vision with business objectives</span>
-          </li>
-          <li class="flex items-start">
-            <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
-            <span>Manages timelines, budgets, and team coordination</span>
-          </li>
-          <li class="flex items-start">
-            <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
-            <span>Acts as bridge between clients, creatives, and executives</span>
-          </li>
-        </ul>
-        <div class="mt-8 flex justify-center">
-          <img id="projectImg" src="New folder/public/picture/maxpost.png" alt="Project Management" class="rounded-lg shadow-xl w-80 h-80 md:w-96 md:h-96 object-contain bg-gray-900/40"
-            onerror="(function(i){var a=parseInt(i.getAttribute('data-attempt')||'0')+1;i.setAttribute('data-attempt',a);if(a===1){i.src='New%20folder/public/picture/maxpost.png';}else if(a===2){i.src='/New%20folder/public/picture/maxpost.png';}else{ /* give up - keep alt text */ i.removeAttribute('src');}})(this)" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 3: Background -->
-    <section class="slide p-8 flex flex-col justify-center">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center mb-8">
-          <div class="w-3 h-12 bg-cyan-500 mr-4"></div>
-          <h2 class="text-3xl font-bold">Becoming a PM</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h3 class="text-xl font-semibold mb-4 text-cyan-300">Education Path</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center"><i data-feather="book" class="mr-2 w-5 h-5"></i> Marketing or Business Degrees</li>
-              <li class="flex items-center"><i data-feather="award" class="mr-2 w-5 h-5"></i> PMP or CAPM Certifications</li>
-              <li class="flex items-center"><i data-feather="monitor" class="mr-2 w-5 h-5"></i> Social Media Marketing Courses</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-4 text-cyan-300">Experience Needed</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center"><i data-feather="users" class="mr-2 w-5 h-5"></i> 3-5 years in digital marketing</li>
-              <li class="flex items-center"><i data-feather="trending-up" class="mr-2 w-5 h-5"></i> Proven campaign leadership</li>
-              <li class="flex items-center"><i data-feather="tool" class="mr-2 w-5 h-5"></i> Platform expertise (Meta, TikTok, etc.)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-8 bg-gray-800 p-6 rounded-lg">
-          <div class="flex items-start">
-            <i data-feather="info" class="text-yellow-400 mr-4 mt-1"></i>
-            <p>"At NextEast Media, we value hands-on experience with influencer campaigns and viral content strategies as much as formal education."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 4: Success -->
-    <section class="slide p-8 flex flex-col justify-center">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center mb-8">
-          <div class="w-3 h-12 bg-blue-500 mr-4"></div>
-          <h2 class="text-3xl font-bold">Keys to Success</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <!doctype html>
+  <html lang="en" class="dark">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>NextEast Media: PM Pitch Deck</title>
+      <meta name="description" content="NextEast Media Project Management Pitch Deck" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </body>
+  </html>
           <div class="bg-gray-800 p-6 rounded-lg">
                         <i data-feather="zap" class="w-8 h-8 text-cyan-300 mb-4"></i>
             <h3 class="font-bold mb-2">Adaptability</h3>
@@ -169,52 +57,22 @@
         </div>
       </div>
     </section>
-
-    <!-- Slide 5: Stakeholders -->
-    <section class="slide p-8 flex flex-col justify-center">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center mb-8">
-          <div class="w-3 h-12 bg-cyan-400 mr-4"></div>
-          <h2 class="text-3xl font-bold">Key Stakeholders</h2>
-        </div>
-        <div class="flex flex-wrap justify-center gap-6 mb-8">
-          <div class="relative group">
-            <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
-              <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="7" cy="12" r="1.6"/>
-                <circle cx="12" cy="12" r="1.6"/>
-                <circle cx="17" cy="12" r="1.6"/>
-              </svg>
-            </div>
-            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-              Clients
-            </div>
-          </div>
-          <div class="relative group">
-            <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
-              <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 5 L19 19 H5 Z"/>
-              </svg>
-            </div>
-            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-              Creatives
-            </div>
-          </div>
-          <div class="relative group">
-            <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
-              <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 V11"/>
-                <path d="M12 17 V8"/>
-                <path d="M17 17 V13"/>
-              </svg>
-            </div>
-            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-              Finance
-            </div>
-          </div>
-          <div class="relative group">
-            <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center border-2 border-cyan-400 group-hover:border-blue-400 transition-all">
-              <svg class="w-10 h-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextEast Media: PM Pitch Deck</title>
+    <meta name="description" content="NextEast Media Project Management Pitch Deck" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
                 <path d="M6 14 L12 8 L18 14"/>
               </svg>
             </div>
